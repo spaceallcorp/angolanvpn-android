@@ -424,7 +424,7 @@ fun StartingView() {
       verticalArrangement = Arrangement.Center,
       horizontalAlignment = Alignment.CenterHorizontally) {
         TailscaleLogoView(
-            animated = true, usesOnBackgroundColors = false, Modifier.size(40.dp).alpha(0.3f))
+            animated = true, usesOnBackgroundColors = false, Modifier.size(270.dp).alpha(0.3f))
       }
 }
 
@@ -453,7 +453,7 @@ fun ConnectView(
           horizontalAlignment = Alignment.CenterHorizontally,
       ) {
         if (!isPrepared) {
-          TailscaleLogoView(modifier = Modifier.size(50.dp))
+          TailscaleLogoView(modifier = Modifier.size(270.dp))
           Spacer(modifier = Modifier.size(1.dp))
           Text(
               text = stringResource(id = R.string.welcome_to_tailscale),
@@ -522,7 +522,7 @@ fun ConnectView(
                 fontSize = MaterialTheme.typography.titleMedium.fontSize)
           }
         } else {
-          TailscaleLogoView(modifier = Modifier.size(50.dp))
+          TailscaleLogoView(modifier = Modifier.size(270.dp))
           Spacer(modifier = Modifier.size(1.dp))
           Text(
               text = stringResource(id = R.string.welcome_to_tailscale),

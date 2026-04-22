@@ -58,59 +58,59 @@ fun AppTheme(useDarkTheme: Boolean = isSystemInDarkTheme(), content: @Composable
 
 private val LightColors =
     lightColorScheme(
-        primary = Color(0xFF4B70CC), // blue-500
+        primary = Color(0xFF006C96), // dark blue
         onPrimary = Color(0xFFFFFFFF), // white
-        primaryContainer = Color(0xFFF0F5FF), // blue-0
-        onPrimaryContainer = Color(0xFF3E5DB3), // blue-600
+        primaryContainer = Color(0xFFE6F0F5), // light blue tint
+        onPrimaryContainer = Color(0xFF006C96), // dark blue
         error = Color(0xFFB22C30), // red-500
         onError = Color(0xFFFFFFFF), // white
         errorContainer = Color(0xFFFEF6F3), // red-0
         onErrorContainer = Color(0xFF930921), // red-600
-        surfaceDim = Color(0xFFF7F5F4), // gray-100
-        surface = Color(0xFFFFFFFF), // white,
-        background = Color(0xFFF7F5F4), // gray-100
+        surfaceDim = Color(0xFFF8FAFC), // light gray
+        surface = Color(0xFFFFFFFF), // white
+        background = Color(0xFFF8FAFC), // light gray
         surfaceBright = Color(0xFFFFFFFF), // white
         surfaceContainerLowest = Color(0xFFFFFFFF), // white
-        surfaceContainerLow = Color(0xFFF7F5F4), // gray-100
-        surfaceContainer = Color(0xFFF7F5F4), // gray-100
-        surfaceContainerHigh = Color(0xFFF7F5F4), // gray-100
-        surfaceContainerHighest = Color(0xFFF7F5F4), // gray-100
-        surfaceVariant = Color(0xFFF7F5F4), // gray-100,
-        onSurface = Color(0xFF232222), // gray-800
-        onSurfaceVariant = Color(0xFF706E6D), // gray-500
-        outline = Color(0xFF706E6D), // gray-500
-        outlineVariant = Color(0xFFEDEBEA), // gray-200
-        inverseSurface = Color(0xFF232222), // gray-800
+        surfaceContainerLow = Color(0xFFF8FAFC), // light gray
+        surfaceContainer = Color(0xFFF8FAFC), // light gray
+        surfaceContainerHigh = Color(0xFFF8FAFC), // light gray
+        surfaceContainerHighest = Color(0xFFF8FAFC), // light gray
+        surfaceVariant = Color(0xFFF8FAFC), // light gray
+        onSurface = Color(0xFF1A202C), // dark gray/black for titles
+        onSurfaceVariant = Color(0xFF4A5568), // medium gray for body
+        outline = Color(0xFF4A5568), // medium gray
+        outlineVariant = Color(0xFFE2E8F0), // border color
+        inverseSurface = Color(0xFF1A202C), // dark gray/black
         inverseOnSurface = Color(0xFFFFFFFF), // white
         scrim = Color(0xAA000000), // black
     )
 
 private val DarkColors =
     darkColorScheme(
-        primary = Color(0xFF3E5DB3), // blue-600
+        primary = Color(0xFF006C96), // dark blue
         onPrimary = Color(0xFFFFFFFF), // white
-        primaryContainer = Color(0xFFf0f5ff), // blue-0
-        onPrimaryContainer = Color(0xFF5A82DC), // blue-400
+        primaryContainer = Color(0xFF003D57), // darker blue
+        onPrimaryContainer = Color(0xFF4DB0D8), // lighter blue
         error = Color(0xFFEF5350), // red-400
         onError = Color(0xFFFFFFFF), // white
         errorContainer = Color(0xFFfff6f4), // red-0
         onErrorContainer = Color(0xFF940822), // red-600
-        surfaceDim = Color(0xFF1f1e1e), // gray-900
-        surface = Color(0xFF232222), // gray-800
-        background = Color(0xFF181717), // gray-1000
-        surfaceBright = Color(0xFF444342), // gray-600
-        surfaceContainerLowest = Color(0xFF1f1e1e), // gray-900
-        surfaceContainerLow = Color(0xFF232222), // gray-800
-        surfaceContainer = Color(0xFF181717), // gray-1000
-        surfaceContainerHigh = Color(0xFF232222), // gray-800
-        surfaceContainerHighest = Color(0xFF2e2d2d), // gray-700
-        surfaceVariant = Color(0xFF1f1e1e), // gray-900
-        onSurface = Color(0xFFfaf9f8), // gray-0
-        onSurfaceVariant = Color(0xFFafacab), // gray-400
-        outline = Color(0xFF706E6D), // gray-500
-        outlineVariant = Color(0xFF2E2D2D), // gray-700
-        inverseSurface = Color(0xFFEDEBEA), // gray-200
-        inverseOnSurface = Color(0xFF000000), // black
+        surfaceDim = Color(0xFF1A202C), // dark gray
+        surface = Color(0xFF1A202C), // dark gray
+        background = Color(0xFF1A202C), // dark gray
+        surfaceBright = Color(0xFF2D3748), // lighter gray
+        surfaceContainerLowest = Color(0xFF1A202C), // dark gray
+        surfaceContainerLow = Color(0xFF1A202C), // dark gray
+        surfaceContainer = Color(0xFF1A202C), // dark gray
+        surfaceContainerHigh = Color(0xFF2D3748), // lighter gray
+        surfaceContainerHighest = Color(0xFF4A5568), // medium gray
+        surfaceVariant = Color(0xFF1A202C), // dark gray
+        onSurface = Color(0xFFF8FAFC), // light gray for titles
+        onSurfaceVariant = Color(0xFFE2E8F0), // light gray for body
+        outline = Color(0xFF4A5568), // medium gray
+        outlineVariant = Color(0xFF2D3748), // darker gray
+        inverseSurface = Color(0xFFF8FAFC), // light gray
+        inverseOnSurface = Color(0xFF1A202C), // dark gray
         scrim = Color(0xAA000000), // black
     )
 
@@ -133,19 +133,19 @@ val ColorScheme.onWarningContainer: Color
   get() = Color(0xFF7E1E22) // orange-600
 
 val ColorScheme.success: Color
-  get() = Color(0xFF0A825D) // green-400
+  get() = Color(0xFF00DDC1) // turquoise/teal
 
 val ColorScheme.onSuccess: Color
-  get() = Color(0xFFFFFFFF) // white
+  get() = Color(0xFF1A202C) // dark gray
 
 val ColorScheme.successContainer: Color
-  get() = Color(0xFFEFFEEC) // green-0
+  get() = Color(0xFFE0FAF6) // light turquoise
 
 val ColorScheme.onSuccessContainer: Color
-  get() = Color(0xFF0E4B3B) // green-600
+  get() = Color(0xFF006C96) // dark blue
 
 val ColorScheme.on: Color
-  get() = Color(0xFF1CA672) // green-300
+  get() = Color(0xFF00CACA) // turquoise/teal
 
 val ColorScheme.off: Color
   @Composable
@@ -316,13 +316,13 @@ val ColorScheme.secondaryButton: ButtonColors
     val defaults = ButtonDefaults.buttonColors()
     if (isSystemInDarkTheme()) {
       return ButtonColors(
-          containerColor = Color(0xFF4B70CC), // blue-500
+          containerColor = Color(0xFF006C96), // dark blue
           contentColor = Color(0xFFFFFFFF), // white
           disabledContainerColor = defaults.disabledContainerColor,
           disabledContentColor = defaults.disabledContentColor)
     } else {
       return ButtonColors(
-          containerColor = Color(0xFF5A82DC), // blue-400
+          containerColor = Color(0xFF006C96), // dark blue
           contentColor = Color(0xFFFFFFFF), // white
           disabledContainerColor = defaults.disabledContainerColor,
           disabledContentColor = defaults.disabledContentColor)

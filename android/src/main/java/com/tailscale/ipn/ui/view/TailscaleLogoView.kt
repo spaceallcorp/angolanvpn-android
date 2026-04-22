@@ -3,25 +3,16 @@
 
 package com.tailscale.ipn.ui.view
 
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import com.tailscale.ipn.ui.theme.onBackgroundLogoDotDisabled
-import com.tailscale.ipn.ui.theme.onBackgroundLogoDotEnabled
-import com.tailscale.ipn.ui.theme.standaloneLogoDotDisabled
-import com.tailscale.ipn.ui.theme.standaloneLogoDotEnabled
-import com.tailscale.ipn.ui.util.set
-import kotlin.concurrent.timer
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.res.painterResource
+import com.tailscale.ipn.R
 
 // DotsMatrix represents the state of the progress indicator.
 typealias DotsMatrix = List<List<Boolean>>
@@ -40,62 +31,12 @@ fun TailscaleLogoView(
     usesOnBackgroundColors: Boolean = false,
     modifier: Modifier
 ) {
-
-  val primaryColor: Color =
-      if (usesOnBackgroundColors) {
-        MaterialTheme.colorScheme.onBackgroundLogoDotEnabled
-      } else {
-        MaterialTheme.colorScheme.standaloneLogoDotEnabled
-      }
-  val secondaryColor: Color =
-      if (usesOnBackgroundColors) {
-        MaterialTheme.colorScheme.onBackgroundLogoDotDisabled
-      } else {
-        MaterialTheme.colorScheme.standaloneLogoDotDisabled
-      }
-
-  val currentDotsMatrix: StateFlow<DotsMatrix> = MutableStateFlow(logoDotsMatrix)
-  var currentDotsMatrixIndex = 0
-  fun advanceToNextMatrix() {
-    currentDotsMatrixIndex = (currentDotsMatrixIndex + 1) % gameOfLife.size
-    val newMatrix =
-        if (animated) {
-          gameOfLife[currentDotsMatrixIndex]
-        } else {
-          logoDotsMatrix
-        }
-    currentDotsMatrix.set(newMatrix)
-  }
-
-  if (animated) {
-    timer(period = 300L) { advanceToNextMatrix() }
-  }
-
-  @Composable
-  fun EnabledDot(modifier: Modifier) {
-    Canvas(modifier = modifier, onDraw = { drawCircle(primaryColor) })
-  }
-
-  @Composable
-  fun DisabledDot(modifier: Modifier) {
-    Canvas(modifier = modifier, onDraw = { drawCircle(secondaryColor) })
-  }
-
-  BoxWithConstraints(modifier) {
-    val currentMatrix = currentDotsMatrix.collectAsState().value
-    Column(verticalArrangement = Arrangement.spacedBy(this@BoxWithConstraints.maxWidth.div(8))) {
-      for (y in 0..2) {
-        Row(horizontalArrangement = Arrangement.spacedBy(this@BoxWithConstraints.maxWidth.div(8))) {
-          for (x in 0..2) {
-            if (currentMatrix[y][x]) {
-              EnabledDot(Modifier.size(this@BoxWithConstraints.maxWidth.div(4)))
-            } else {
-              DisabledDot(Modifier.size(this@BoxWithConstraints.maxWidth.div(4)))
-            }
-          }
-        }
-      }
-    }
+  Box(modifier = modifier, contentAlignment = Alignment.Center) {
+    Image(
+        painter = painterResource(id = R.mipmap.logo_angolanvpn),
+        contentDescription = "Angolan VPN Logo",
+        modifier = Modifier.fillMaxSize()
+    )
   }
 }
 
