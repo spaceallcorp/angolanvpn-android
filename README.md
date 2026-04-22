@@ -4,7 +4,7 @@ https://tailscale.com
 
 Private WireGuard® networks made easy
 
-## Overview
+## Overview.
 
 This repository contains the open source Tailscale Android client.
 

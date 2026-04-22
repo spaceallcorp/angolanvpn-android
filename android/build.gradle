@@ -21,9 +21,6 @@ buildscript {
 repositories {
     google()
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
 }
 
 apply plugin: 'kotlin-android'
@@ -150,7 +147,7 @@ dependencies {
     implementation("com.patrykandpatrick.vico:compose-m3:1.15.0")
 
     // Tailscale dependencies.
-    implementation ':libtailscale@aar'
+    implementation files('libs/libtailscale.aar')
 
     // Integration Tests
     androidTestImplementation composeBom
@@ -190,7 +187,14 @@ def getVersionProperty(key) {
     // tailscale.version is created / updated by the makefile, it is in a loosely
     // Makfile/envfile format, which is also loosely a properties file format.
     //      make tailscale.version
-    def versionProps = new Properties()
-    versionProps.load(project.file('../tailscale.version').newDataInputStream())
-    return versionProps.getProperty(key).replaceAll('^\"|\"$', '')
+    try {
+        def versionProps = new Properties()
+        def versionFile = project.file('../tailscale.version')
+        if (versionFile.exists()) {
+            versionFile.withInputStream { versionProps.load(it) }
+        }
+        return versionProps.getProperty(key)?.replaceAll('^\"|\"$', '') ?: ""
+    } catch (Exception ignored) {
+        return ""
+    }
 }
