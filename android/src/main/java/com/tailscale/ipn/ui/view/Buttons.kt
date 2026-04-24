@@ -6,6 +6,7 @@ package com.tailscale.ipn.ui.view
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,12 +18,15 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.tailscale.ipn.ui.theme.link
 
+import androidx.compose.foundation.shape.RoundedCornerShape
+
 @Composable
 fun PrimaryActionButton(onClick: () -> Unit, content: @Composable RowScope.() -> Unit) {
   Button(
       onClick = onClick,
-      contentPadding = PaddingValues(vertical = 12.dp),
-      modifier = Modifier.fillMaxWidth(),
+      contentPadding = PaddingValues(vertical = 14.dp, horizontal = 24.dp),
+      shape = RoundedCornerShape(12.dp),
+      modifier = Modifier.fillMaxWidth().height(56.dp),
       content = content)
 }
 

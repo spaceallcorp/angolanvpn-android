@@ -8,22 +8,24 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import com.tailscale.ipn.ui.theme.off
 
 @Composable
 fun TintedSwitch(checked: Boolean, onCheckedChange: ((Boolean) -> Unit)?, enabled: Boolean = true) {
-  CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
     Switch(
         checked = checked,
         onCheckedChange = onCheckedChange,
         enabled = enabled,
         colors =
             SwitchDefaults.colors(
+                checkedTrackColor = Color(0xFF00DDC1),
+                checkedThumbColor = Color.White,
+                checkedBorderColor = Color.Transparent,
                 uncheckedTrackColor = MaterialTheme.colorScheme.off,
                 uncheckedBorderColor = MaterialTheme.colorScheme.outline,
-                uncheckedThumbColor = MaterialTheme.colorScheme.outlineVariant,
+                uncheckedThumbColor = Color.White,
             ))
-  }
 }

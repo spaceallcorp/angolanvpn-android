@@ -42,7 +42,7 @@ fun IntroView(onContinue: () -> Unit) {
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center)
 
-        Button(onClick = onContinue) {
+        PrimaryActionButton(onClick = onContinue) {
           Text(
               text = stringResource(id = R.string.getStarted),
               fontSize = MaterialTheme.typography.titleMedium.fontSize)
