@@ -190,24 +190,26 @@ fun SearchView(
                   }
                   firstGroup = false
 
-                  val userName = peerSet.user?.DisplayName ?: "Unknown User"
                   peerSet.peers.forEachIndexed { index, peer ->
                     if (index > 0) {
                       item(key = "divider_${peer.StableID}") { Lists.ItemDivider() }
                     }
                     item(key = "peer_${peer.StableID}") {
+                      val userName = peerSet.user?.DisplayName ?: stringResource(id = R.string.unknown_user)
+                      val onlineColor = peer.connectedColor(netmap)
+                      val displayName = peer.displayName ?: stringResource(id = R.string.unknown_device)
+
                       ListItem(
                           colors = MaterialTheme.colorScheme.listItem,
                           headlineContent = {
                             Column {
                               Row(verticalAlignment = Alignment.CenterVertically) {
-                                val onlineColor = peer.connectedColor(netmap)
                                 Box(
                                     modifier =
                                         Modifier.size(10.dp)
                                             .background(onlineColor, RoundedCornerShape(50)))
                                 Spacer(modifier = Modifier.size(8.dp))
-                                Text(peer.displayName ?: "Unknown Device")
+                                Text(displayName)
                               }
                             }
                           },

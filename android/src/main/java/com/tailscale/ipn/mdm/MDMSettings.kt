@@ -27,92 +27,92 @@ object MDMSettings {
   var isMDMConfigured = true
     private set
 
-  val forceEnabled = BooleanMDMSetting("ForceEnabled", "Force Enabled Connection Toggle")
+  val forceEnabled = BooleanMDMSetting("ForceEnabled", "Alternar Conexão Forçada")
 
   // Handled on the backed
-  val exitNodeID = StringMDMSetting("ExitNodeID", "Forced Exit Node: Stable ID")
+  val exitNodeID = StringMDMSetting("ExitNodeID", "Nó de Saída Forçado: ID Estável")
 
   // (jonathan) TODO: Unused but required. There is some funky go string duration parsing required
   // here.
-  val keyExpirationNotice = StringMDMSetting("KeyExpirationNotice", "Key Expiration Notice Period")
+  val keyExpirationNotice = StringMDMSetting("KeyExpirationNotice", "Período de Aviso de Expiração da Chave")
 
-  val loginURL = StringMDMSetting("LoginURL", "Custom control server URL")
+  val loginURL = StringMDMSetting("LoginURL", "URL personalizada do servidor de controle")
 
-  val managedByCaption = StringMDMSetting("ManagedByCaption", "Managed By - Caption")
+  val managedByCaption = StringMDMSetting("ManagedByCaption", "Gerenciado Por - Legenda")
 
   val managedByOrganizationName =
-      StringMDMSetting("ManagedByOrganizationName", "Managed By - Organization Name")
+      StringMDMSetting("ManagedByOrganizationName", "Gerenciado Por - Nome da Organização")
 
-  val managedByURL = StringMDMSetting("ManagedByURL", "Managed By - Support URL")
+  val managedByURL = StringMDMSetting("ManagedByURL", "Gerenciado Por - URL de Suporte")
 
   // Handled on the backend
-  val tailnet = StringMDMSetting("Tailnet", "Recommended/Required Tailnet Name")
+  val tailnet = StringMDMSetting("Tailnet", "Nome da Rede Recomendada/Obrigatória")
 
   val hiddenNetworkDevices =
-      StringArrayListMDMSetting("HiddenNetworkDevices", "Hidden Network Device Categories")
+      StringArrayListMDMSetting("HiddenNetworkDevices", "Categorias de Dispositivos de Rede Ocultos")
 
   // Unused on Android
   val allowIncomingConnections =
-      AlwaysNeverUserDecidesMDMSetting("AllowIncomingConnections", "Allow Incoming Connections")
+      AlwaysNeverUserDecidesMDMSetting("AllowIncomingConnections", "Permitir Conexões de Entrada")
 
   // Unused on Android
   val detectThirdPartyAppConflicts =
       AlwaysNeverUserDecidesMDMSetting(
-          "DetectThirdPartyAppConflicts", "Detect potentially problematic third-party apps")
+          "DetectThirdPartyAppConflicts", "Detectar aplicativos de terceiros potencialmente problemáticos")
 
   val exitNodeAllowLANAccess =
       AlwaysNeverUserDecidesMDMSetting(
-          "ExitNodeAllowLANAccess", "Allow LAN Access when using an exit node")
+          "ExitNodeAllowLANAccess", "Permitir acesso à LAN ao usar um nó de saída")
 
   // Handled on the backend
   val postureChecking =
-      AlwaysNeverUserDecidesMDMSetting("PostureChecking", "Enable Posture Checking")
+      AlwaysNeverUserDecidesMDMSetting("PostureChecking", "Ativar Verificação de Postura")
 
   // Handled on the backend
   val deviceSerialNumber =
       StringMDMSetting(
-          "DeviceSerialNumber", "Serial number of the device that is running Tailscale")
+          "DeviceSerialNumber", "Número de série do dispositivo que está executando o Angolan VPN")
 
   val useTailscaleDNSSettings =
-      AlwaysNeverUserDecidesMDMSetting("UseTailscaleDNSSettings", "Use Tailscale DNS Settings")
+      AlwaysNeverUserDecidesMDMSetting("UseTailscaleDNSSettings", "Usar Configurações de DNS do Angolan VPN")
 
   // Unused on Android
   val useTailscaleSubnets =
-      AlwaysNeverUserDecidesMDMSetting("UseTailscaleSubnets", "Use Tailscale Subnets")
+      AlwaysNeverUserDecidesMDMSetting("UseTailscaleSubnets", "Usar Sub-redes do Angolan VPN")
 
-  val exitNodesPicker = ShowHideMDMSetting("ExitNodesPicker", "Exit Nodes Picker")
+  val exitNodesPicker = ShowHideMDMSetting("ExitNodesPicker", "Seletor de Nós de Saída")
 
-  val manageTailnetLock = ShowHideMDMSetting("ManageTailnetLock", "“Manage Tailnet lock” menu item")
-
-  // Unused on Android
-  val resetToDefaults = ShowHideMDMSetting("ResetToDefaults", "“Reset to Defaults” menu item")
-
-  val runExitNode = ShowHideMDMSetting("RunExitNode", "Run as Exit Node")
+  val manageTailnetLock = ShowHideMDMSetting("ManageTailnetLock", "Item de menu “Gerenciar bloqueio de rede”")
 
   // Unused on Android
-  val testMenu = ShowHideMDMSetting("TestMenu", "Show Debug Menu")
+  val resetToDefaults = ShowHideMDMSetting("ResetToDefaults", "Item de menu “Redefinir para Padrões”")
+
+  val runExitNode = ShowHideMDMSetting("RunExitNode", "Executar como Nó de Saída")
 
   // Unused on Android
-  val updateMenu = ShowHideMDMSetting("UpdateMenu", "“Update Available” menu item")
+  val testMenu = ShowHideMDMSetting("TestMenu", "Mostrar Menu de Depuração")
+
+  // Unused on Android
+  val updateMenu = ShowHideMDMSetting("UpdateMenu", "Item de menu “Atualização Disponível”")
 
   // (jonathan) TODO: Use this when suggested exit nodes are implemented
   val allowedSuggestedExitNodes =
-      StringArrayListMDMSetting("AllowedSuggestedExitNodes", "Allowed Suggested Exit Nodes")
+      StringArrayListMDMSetting("AllowedSuggestedExitNodes", "Nós de Saída Sugeridos Permitidos")
 
   // Allows admins to define a list of packages that won't be routed via Tailscale.
-  val excludedPackages = StringMDMSetting("ExcludedPackageNames", "Excluded Package Names")
+  val excludedPackages = StringMDMSetting("ExcludedPackageNames", "Nomes de Pacotes Excluídos")
   // Allows admins to define a list of packages that will be routed via Tailscale, letting all other
   // apps skip the VPN tunnel.
-  val includedPackages = StringMDMSetting("IncludedPackageNames", "Included Package Names")
+  val includedPackages = StringMDMSetting("IncludedPackageNames", "Nomes de Pacotes Incluídos")
 
   // Handled on the backend
-  val authKey = StringMDMSetting("AuthKey", "Auth Key for login")
+  val authKey = StringMDMSetting("AuthKey", "Chave de Autenticação para login")
 
   // Overrides the value provided by os.Hostname() in Go
-  val hostname = StringMDMSetting("Hostname", "Device Hostname")
+  val hostname = StringMDMSetting("Hostname", "Nome de Host do Dispositivo")
 
   // Allows admins to skip the get started intro screen
-  val onboardingFlow = ShowHideMDMSetting("OnboardingFlow", "Suppress the intro screen")
+  val onboardingFlow = ShowHideMDMSetting("OnboardingFlow", "Ocultar a tela de introdução")
 
   val allSettings by lazy {
     MDMSettings::class
@@ -127,7 +127,7 @@ object MDMSettings {
   val hardwareAttestation =
       BooleanMDMSetting(
           KEY_HARDWARE_ATTESTATION,
-          "Use hardware-backed keys to bind node identity to the device",
+          "Usar chaves protegidas por hardware para vincular a identidade do nó ao dispositivo",
       )
 
   val allSettingsByKey by lazy { allSettings.associateBy { it.key } }

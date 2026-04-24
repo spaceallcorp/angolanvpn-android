@@ -28,15 +28,15 @@ data class StatusItem(@StringRes val title: Int, @DrawableRes val icon: Int)
 class TailnetLockSetupViewModel : IpnViewModel() {
 
   val statusItems: StateFlow<List<StatusItem>> = MutableStateFlow(emptyList())
-  val nodeKey: StateFlow<String> = MutableStateFlow("unknown")
-  val tailnetLockKey: StateFlow<String> = MutableStateFlow("unknown")
+  val nodeKey: StateFlow<String> = MutableStateFlow("desconhecido")
+  val tailnetLockKey: StateFlow<String> = MutableStateFlow("desconhecido")
 
   init {
     LoadingIndicator.start()
     Client(viewModelScope).tailnetLockStatus { result ->
       statusItems.set(generateStatusItems(result.getOrNull()))
-      nodeKey.set(result.getOrNull()?.NodeKey ?: "unknown")
-      tailnetLockKey.set(result.getOrNull()?.PublicKey ?: "unknown")
+      nodeKey.set(result.getOrNull()?.NodeKey ?: "desconhecido")
+      tailnetLockKey.set(result.getOrNull()?.PublicKey ?: "desconhecido")
       LoadingIndicator.stop()
     }
   }

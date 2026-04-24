@@ -8,6 +8,7 @@
     <string name="connect">Conecte-se</string>
     <string name="disconnect">Desconecte-se</string>
     <string name="unknown_user">Usuário desconhecido</string>
+    <string name="unknown_device">Dispositivo desconhecido</string>
     <string name="connected">Conectado</string>
     <string name="using_exit_node">Usando o nó de saída (%s)</string>
     <string name="not_connected">Não conectado</string>
