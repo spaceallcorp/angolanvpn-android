@@ -109,6 +109,7 @@ class App : UninitializedApp(), libtailscale.AppContext, ViewModelStoreOwner {
   override fun onCreate() {
     super.onCreate()
     appInstance = this
+    TSLog.init(this)
     setUnprotectedInstance(this)
     mdmChangeReceiver = MDMSettingsChangedReceiver()
     val filter = IntentFilter(Intent.ACTION_APPLICATION_RESTRICTIONS_CHANGED)
@@ -208,10 +209,6 @@ class App : UninitializedApp(), libtailscale.AppContext, ViewModelStoreOwner {
             }
       }
     }
-    applicationScope.launch {
-      val hideDisconnectAction = MDMSettings.forceEnabled.flow.first()
-    }
-    TSLog.init(this)
     FeatureFlags.initialize(mapOf("enable_new_search" to true))
   }
   /**

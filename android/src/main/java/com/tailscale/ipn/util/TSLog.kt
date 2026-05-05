@@ -49,12 +49,17 @@ object TSLog {
   }
 
   private fun isUnstableRelease(): Boolean {
-    val versionName =
-        appContext.packageManager.getPackageInfo(appContext.packageName, 0).versionName
+    if (!::appContext.isInitialized) return false
+    return try {
+      val versionName =
+          appContext.packageManager.getPackageInfo(appContext.packageName, 0).versionName
 
-    // Extract the middle number and check if it's odd
-    val middleNumber = versionName.split(".").getOrNull(1)?.toIntOrNull()
-    return middleNumber?.let { it % 2 == 1 } ?: false
+      // Extract the middle number and check if it's odd
+      val middleNumber = versionName.split(".").getOrNull(1)?.toIntOrNull()
+      middleNumber?.let { it % 2 == 1 } ?: false
+    } catch (e: Exception) {
+      false
+    }
   }
 
   class LibtailscaleWrapper {
